@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contant %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in book %}
+        <tr>
+            <td scope="row">{{i.name}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.author}}</td>
+            <td><a href="{% url 'deleteBook' i.id %}" class="btn btn-danger text-white" >Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock contant %}
