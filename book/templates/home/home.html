@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 
 {% block contant %}
-{% load crispy_forms_tags %}
-<h2 style="text-align: center; margin-top: 5%;">Book registation form</h2>
-<form method="post" style="width: 40%; margin: auto; height: 500px;">
-    {% csrf_token %}
-    {{form|crispy}}
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+<div class="row row-cols-1 row-cols-md-3 g-4" style="padding: 2%;">
+    {% for i in book %}
+    <div class="col">
+        <div class="card">
+            <img src="https://images.inc.com/uploaded_files/image/1920x1080/getty_655998316_2000149920009280219_363765.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.title}}</h5>
+                <p class="card-text">{{i.description}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated {{i.last_pub}}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock contant %}

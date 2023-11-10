@@ -7,6 +7,8 @@
             <th scope="col">Name</th>
             <th scope="col">Title</th>
             <th scope="col">Author</th>
+            <th scope="col">First pub</th>
+            <th scope="col">Last pub</th>
             <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -16,7 +18,13 @@
             <td scope="row">{{i.name}}</td>
             <td>{{i.title}}</td>
             <td>{{i.author}}</td>
-            <td><a href="{% url 'deleteBook' i.id %}" class="btn btn-danger text-white" >Delete</a></td>
+            <td>{{i.first_pub}}</td>
+            <td>{{i.last_pub}}</td>
+            <td>
+                <a href="{% url 'update' id=i.id %}" class="btn btn-danger text-white">Edit</a>
+                <a href="{% url 'deleteBook' i.id %}" class="btn btn-danger text-white">Delete</a>
+            </td>
+
         </tr>
         {% endfor %}
     </tbody>
